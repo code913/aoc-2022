@@ -1,13 +1,13 @@
 // Get the input
 // 0 - Rock; 1 - Paper; 2 - Scissors
 // The filter is needed because there's a new line at the end of the pre
-input = $("pre").innerText.replace(/[ABCXYZ]/g, m => "ABCXYZ".indexOf(m) % 3).split("\n").map(string => string.split(" ")).filter(s => s?.length > 1);
+const input = $("pre").innerText.replace(/[ABCXYZ]/g, m => "ABCXYZ".indexOf(m) % 3).split("\n").map(string => string.split(" ")).filter(s => s?.length > 1);
 
 // Part 1
 // Difference between elf's move is a number from -2 to +2
 // This array takes the winner index as the number plus 2 (since arrays
 // start at 0) and returns the points for the winner
-resultPoints = (({ elf, draw, you }) => [ elf, you, draw, elf, you ])({ elf: 0, draw: 3, you: 6 }); // 0 for lose, 3 for draw, 6 for win
+const resultPoints = (({ elf, draw, you }) => [ elf, you, draw, elf, you ])({ elf: 0, draw: 3, you: 6 }); // 0 for lose, 3 for draw, 6 for win
 
 console.log(input.reduce((acc, [ elfMove, yourMove ]) => (
 	acc
